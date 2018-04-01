@@ -1,0 +1,36 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Resource": [
+          "*"
+      ],
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Resource": [
+          "arn:aws:codecommit:${region}:${account_id}:${fqdn}"
+      ],
+      "Action": [
+          "codecommit:GitPull"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Resource": [
+          "arn:aws:s3:::www.${fqdn}/*"
+      ],
+      "Action": [
+          "s3:DeleteObject",
+          "s3:GetObject",
+          "s3:PutObject"
+      ]
+    }
+  ]
+}
