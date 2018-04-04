@@ -25,7 +25,7 @@
       "Effect": "Allow",
       "Resource": [
           "arn:aws:s3:::www.${fqdn}/*",
-          "arn:aws:s3:::www.${fqdn}-code/*"
+          "arn:aws:s3:::${fqdn}-code/*"
       ],
       "Action": [
           "s3:DeleteObject",
