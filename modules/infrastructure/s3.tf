@@ -1,5 +1,5 @@
 data "template_file" "bucket_policy" {
-  template = "${file("../modules/infrastructure/s3-bucket-policy.json")}"
+  template = "${file("s3-bucket-policy.json")}"
 
   vars {
     fqdn = "${var.fqdn}"

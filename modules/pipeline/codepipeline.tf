@@ -7,7 +7,7 @@ resource "aws_iam_policy" "codepipeline_policy" {
   path        = "/"
   description = "Policy used in trust relationship with CodePipeline"
 
-  policy = "${file("../modules/pipeline/codepipeline-iam-policy.json")}"
+  policy = "${file("codepipeline-iam-policy.json")}"
 }
 
 resource "aws_iam_policy_attachment" "codepipeline_policy_attachment" {
@@ -18,7 +18,7 @@ resource "aws_iam_policy_attachment" "codepipeline_policy_attachment" {
 
 resource "aws_iam_role" "codepipeline_role" {
   name                  = "codepipeline-role-${var.fqdn}"
-  assume_role_policy    = "${file("../modules/pipeline/codepipeline-iam-trust.json")}"
+  assume_role_policy    = "${file("codepipeline-iam-trust.json")}"
   force_detach_policies = true
 }
 
