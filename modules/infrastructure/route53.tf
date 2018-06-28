@@ -1,6 +1,6 @@
-# resource "aws_route53_zone" "zone" {
-#   name = "${var.fqdn}"
-# }
+resource "aws_route53_zone" "zone" {
+  name = "${var.fqdn}"
+}
 
 resource "aws_route53_record" "www-record" {
   zone_id = "${var.route53_zone_id}"
