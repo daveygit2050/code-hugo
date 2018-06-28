@@ -9,7 +9,7 @@ resource "aws_route53_record" "www-record" {
 
   alias {
     name                   = "s3-website-${var.region}.amazonaws.com."
-    zone_id                = "Z1BKCTXD74EZPE"
+    zone_id                = "${var.route53_zone_id}"
     evaluate_target_health = false
   }
 }
@@ -21,7 +21,7 @@ resource "aws_route53_record" "root-record" {
 
   alias {
     name                   = "s3-website-${var.region}.amazonaws.com."
-    zone_id                = "Z1BKCTXD74EZPE"
+    zone_id                = "${var.route53_zone_id}"
     evaluate_target_health = false
   }
 }
