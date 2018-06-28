@@ -1,5 +1,5 @@
 data "template_file" "iam_policy" {
-  template = "${file("codebuild-iam-policy.json")}"
+  template = "${file("${path.module}/codebuild-iam-policy.json")}"
 
   vars {
     account_id = "${var.account_id}"
@@ -31,7 +31,7 @@ resource "aws_codebuild_project" "project" {
 
 resource "aws_iam_role" "codebuild_role" {
   name                  = "codebuild-role-${var.fqdn}"
-  assume_role_policy    = "${file("codebuild-iam-trust.json")}"
+  assume_role_policy    = "${file("${path.module}/codebuild-iam-trust.json")}"
   force_detach_policies = true
 }
 
